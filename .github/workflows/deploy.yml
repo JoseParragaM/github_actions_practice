@@ -43,7 +43,7 @@ jobs:
           key: ${{ secrets.EC2_KEY }}
           script: |
             docker login ghcr.io -u ${{ github.actor }} -p ${{ secrets.GITHUB_TOKEN }}
-            docker pull ghcr.io/${{ github.repository }}:latest
+            docker pull ghcr.io/joseparragam/github_actions_practice:latest
             docker stop nextjs-app || true
             docker rm nextjs-app || true
-            docker run -d -p 3000:3000 --name nextjs-app ghcr.io/${{ github.repository }}:latest
+            docker run -d -p 3000:3000 --name nextjs-app ghcr.io/joseparragam/github_actions_practice:latest
